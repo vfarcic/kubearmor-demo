@@ -1,0 +1,21 @@
+---
+
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: devops-toolkit
+spec:
+  severity: 5 # 1-10
+  message: "block `ls`, `cp`, and `mv`"
+  selector:
+    matchLabels:
+      app: devops-toolkit
+  process:
+    matchPaths:
+    - path: /bin/ls
+    - path: /bin/cp
+    - path: /bin/mv
+  file:
+    matchDirectories:
+    - dir: /dot/
+  action: Block
