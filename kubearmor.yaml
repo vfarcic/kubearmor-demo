@@ -1,0 +1,18 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: only-allow-app-binary
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: silly-demo
+  file:
+    matchDirectories:
+    - dir: /
+      recursive: true  
+  process:
+    matchPaths:
+    - path: /usr/local/bin/silly-demo
+    - path: /bin/bash
+    - path: /bin/sh
+  action: Allow
