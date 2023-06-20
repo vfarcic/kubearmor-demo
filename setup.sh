@@ -4,6 +4,7 @@ set -e
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export PROJECT_ID=dot-$(date +%Y%m%d%H%M%S)
+echo "export PROJECT_ID=$PROJECT_ID" >> .env
 
 gcloud projects create $PROJECT_ID
 
