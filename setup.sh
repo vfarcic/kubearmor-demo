@@ -15,7 +15,7 @@ Press the enter key to continue."
 export KUBECONFIG=$PWD/kubeconfig.yaml
 echo "export KUBECONFIG=$KUBECONFIG" >> .env
 
-gcloud container clusters create dot --project ${PROJECT_ID} --region us-east1 --machine-type e2-standard-2 --num-nodes 1
+gcloud container clusters create dot --project ${PROJECT_ID} --region us-east1 --machine-type e2-standard-2 --num-nodes 1 --enable-network-policy
 
 gum style \
 	--foreground 212 --border-foreground 212 --border double \
