@@ -13,4 +13,8 @@ spec:
   process:
     matchPaths:
     - path: /usr/local/bin/silly-demo
+    - path: /usr/bin/bash
+    - path: /usr/bin/sh
+    - path: /usr/bin/dash
+    - path: /bin/busybox
   action: Allow
